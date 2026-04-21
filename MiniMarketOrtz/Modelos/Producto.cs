@@ -11,9 +11,6 @@ namespace MiniMarketOrtz.Modelos
 
         private int id { get; set; }
         private string nombre { get; set; }
-
-        private 
-
         private double precio { get; set; }
 
 
