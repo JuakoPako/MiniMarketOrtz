@@ -8,5 +8,6 @@ namespace MiniMarketOrtz.Modelos
 {
     internal class Categoria
     {
+
     }
 }

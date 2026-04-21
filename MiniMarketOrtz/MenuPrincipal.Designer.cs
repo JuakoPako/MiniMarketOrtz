@@ -28,18 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(83, 97);
+            button1.Name = "button1";
+            button1.Size = new Size(111, 35);
+            button1.TabIndex = 0;
+            button1.Text = "Productos";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(83, 241);
+            button2.Name = "button2";
+            button2.Size = new Size(111, 35);
+            button2.TabIndex = 0;
+            button2.Text = "Productos";
+            button2.UseVisualStyleBackColor = true;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Name = "MenuPrincipal";
             Text = "MenuPrincipal";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
+        private Button button2;
     }
 }
