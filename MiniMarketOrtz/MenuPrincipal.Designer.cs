@@ -28,37 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnProductos = new Button();
+            btnCategorias = new Button();
+            btnVentas = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnProductos
             // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(83, 97);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 35);
-            button1.TabIndex = 0;
-            button1.Text = "Productos";
-            button1.UseVisualStyleBackColor = true;
+            btnProductos.FlatStyle = FlatStyle.Flat;
+            btnProductos.Location = new Point(83, 97);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(111, 35);
+            btnProductos.TabIndex = 0;
+            btnProductos.Text = "Productos";
+            btnProductos.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCategorias
             // 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(83, 241);
-            button2.Name = "button2";
-            button2.Size = new Size(111, 35);
-            button2.TabIndex = 0;
-            button2.Text = "Productos";
-            button2.UseVisualStyleBackColor = true;
+            btnCategorias.FlatStyle = FlatStyle.Flat;
+            btnCategorias.Location = new Point(83, 183);
+            btnCategorias.Name = "btnCategorias";
+            btnCategorias.Size = new Size(111, 35);
+            btnCategorias.TabIndex = 0;
+            btnCategorias.Text = "Categorias";
+            btnCategorias.UseVisualStyleBackColor = true;
+            // 
+            // btnVentas
+            // 
+            btnVentas.FlatStyle = FlatStyle.Flat;
+            btnVentas.Location = new Point(83, 274);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(111, 35);
+            btnVentas.TabIndex = 0;
+            btnVentas.Text = "Ventas";
+            btnVentas.UseVisualStyleBackColor = true;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnVentas);
+            Controls.Add(btnCategorias);
+            Controls.Add(btnProductos);
             Name = "MenuPrincipal";
             Text = "MenuPrincipal";
             ResumeLayout(false);
@@ -66,7 +78,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnProductos;
+        private Button btnCategorias;
+        private Button btnVentas;
     }
 }

@@ -6,8 +6,25 @@ using System.Threading.Tasks;
 
 namespace MiniMarketOrtz.Modelos
 {
-    internal class Categoria
+    public class Categoria
     {
 
+
+        public int idCategoria { get; set; }
+        public String Nombre { get; set; }
+
+        public String Descripcion { get; set; }
+
+        public Categoria()
+        {
+
+        }
+
+        public Categoria(int idCategoria, string nombre, string descripcion)
+        {
+            this.idCategoria = idCategoria;
+            Nombre = nombre;
+            Descripcion = descripcion;
+        }
     }
 }
