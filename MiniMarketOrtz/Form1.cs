@@ -26,22 +26,27 @@ namespace MiniMarketOrtz
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
 
-                if (usuario == "admin" && contraseña == "1234")
-                {
-                    MessageBox.Show("Inicio de sesión exitoso");
-                    MenuPrincipal menu = new MenuPrincipal();
-                    menu.Show(this);
-                    this.Hide();
+            if (usuario == "admin" && contraseña == "1234")
+            {
+                MessageBox.Show("Inicio de sesión exitoso");
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.Show(this);
+                this.Hide();
 
             }
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrectos");
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos");
             }
-
         }
     }
 }

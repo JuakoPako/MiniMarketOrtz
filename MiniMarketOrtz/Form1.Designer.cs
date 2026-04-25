@@ -28,113 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitulo = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            label3 = new Label();
-            txtUsuario = new TextBox();
-            txtContraseña = new TextBox();
+            panel1 = new Panel();
             button1 = new Button();
+            txtContraseña = new TextBox();
+            txtUsuario = new TextBox();
+            label3 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblTitulo
+            // panel1
             // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("TechnicBold", 13F, FontStyle.Bold, GraphicsUnit.Point, 2);
-            lblTitulo.Location = new Point(219, 9);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(179, 19);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "MINIMARKET ORTZ";
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(txtContraseña);
+            panel1.Controls.Add(txtUsuario);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(365, 561);
+            panel1.TabIndex = 5;
             // 
-            // label2
+            // button1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("TechnicBold", 11F);
-            label2.Location = new Point(255, 67);
-            label2.Name = "label2";
-            label2.Size = new Size(101, 17);
-            label2.TabIndex = 2;
-            label2.Text = "Iniciar Sesion";
+            button1.BackColor = Color.DeepSkyBlue;
+            button1.FlatAppearance.BorderColor = Color.Black;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Location = new Point(93, 435);
+            button1.Name = "button1";
+            button1.Size = new Size(178, 32);
+            button1.TabIndex = 10;
+            button1.Text = "Entrar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
-            // label1
+            // txtContraseña
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("TechnicBold", 9F);
-            label1.Location = new Point(280, 130);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 13);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario";
-            label1.Click += label1_Click;
+            txtContraseña.BorderStyle = BorderStyle.FixedSingle;
+            txtContraseña.Location = new Point(93, 338);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(178, 23);
+            txtContraseña.TabIndex = 8;
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.BorderStyle = BorderStyle.FixedSingle;
+            txtUsuario.Location = new Point(93, 212);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(178, 23);
+            txtUsuario.TabIndex = 9;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TechnicBold", 9F);
-            label3.Location = new Point(269, 265);
+            label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(140, 310);
             label3.Name = "label3";
-            label3.Size = new Size(70, 13);
-            label3.TabIndex = 2;
+            label3.Size = new Size(84, 17);
+            label3.TabIndex = 5;
             label3.Text = "Contraseña";
-            label3.Click += label1_Click;
             // 
-            // txtUsuario
+            // label1
             // 
-            txtUsuario.Location = new Point(218, 167);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(179, 23);
-            txtUsuario.TabIndex = 3;
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(155, 174);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 17);
+            label1.TabIndex = 6;
+            label1.Text = "Usuario";
             // 
-            // txtContraseña
+            // label2
             // 
-            txtContraseña.Location = new Point(219, 293);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(178, 23);
-            txtContraseña.TabIndex = 3;
-            txtContraseña.TextChanged += textBox2_TextChanged;
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderColor = Color.Black;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("TechnicBold", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            button1.Location = new Point(269, 363);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Entrar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(128, 93);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 21);
+            label2.TabIndex = 7;
+            label2.Text = "Iniciar Sesion";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(624, 441);
-            Controls.Add(button1);
-            Controls.Add(txtContraseña);
-            Controls.Add(txtUsuario);
-            Controls.Add(label3);
-            Controls.Add(label1);
-            Controls.Add(label2);
-            Controls.Add(lblTitulo);
+            BackColor = Color.White;
+            ClientSize = new Size(389, 585);
+            Controls.Add(panel1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblTitulo;
-        private Label label2;
-        private Label label1;
-        private Label label3;
-        private TextBox txtUsuario;
-        private TextBox txtContraseña;
+        private Panel panel1;
         private Button button1;
+        private TextBox txtContraseña;
+        private TextBox txtUsuario;
+        private Label label3;
+        private Label label1;
+        private Label label2;
     }
 }

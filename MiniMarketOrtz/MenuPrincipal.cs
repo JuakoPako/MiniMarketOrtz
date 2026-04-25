@@ -16,5 +16,19 @@ namespace MiniMarketOrtz
         {
             InitializeComponent();
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            GestionCategoria gestionCategoria = new GestionCategoria();
+            gestionCategoria.Show(this);
+            this.Hide();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            GestionVentas gestionVentas = new GestionVentas();
+            gestionVentas.Show(this);
+            this.Hide();
+        }
     }
 }

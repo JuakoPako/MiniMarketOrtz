@@ -52,6 +52,7 @@
             btnCategorias.TabIndex = 0;
             btnCategorias.Text = "Categorias";
             btnCategorias.UseVisualStyleBackColor = true;
+            btnCategorias.Click += btnCategorias_Click;
             // 
             // btnVentas
             // 
@@ -62,6 +63,7 @@
             btnVentas.TabIndex = 0;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = true;
+            btnVentas.Click += btnVentas_Click;
             // 
             // MenuPrincipal
             // 
