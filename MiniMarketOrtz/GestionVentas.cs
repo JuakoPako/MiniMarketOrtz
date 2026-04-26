@@ -14,13 +14,14 @@ namespace MiniMarketOrtz
 {
     public partial class GestionVentas : Form
     {
-        int idEditar = 0;
+        List<DetalleVenta> carrito = new List<DetalleVenta>();
+        int indexEditar = -1;
         public GestionVentas()
         {
             InitializeComponent();
             CargarProductos();
-            ConfigurarTabla();
-            LimpiarCampos();
+            ConfigurarTablas();
+            CargarHistorial();
         }
 
         private void CargarProductos()
@@ -32,50 +33,32 @@ namespace MiniMarketOrtz
             cmbProducto.SelectedIndex = -1;
         }
 
-        private void ConfigurarTabla()
+        private void ConfigurarTablas()
         {
-            dgvVentas.Columns.Clear();
+            // tabla carrito
+            dgvCarrito.Columns.Clear();
+            dgvCarrito.Columns.Add("Producto", "Producto");
+            dgvCarrito.Columns.Add("Cantidad", "Cantidad");
+            dgvCarrito.Columns.Add("Precio", "Precio");
+            dgvCarrito.Columns.Add("Subtotal", "Subtotal");
 
-            dgvVentas.Columns.Add("IdDetalle", "Id");
-            dgvVentas.Columns.Add("IdVenta", "IdVenta");
-            dgvVentas.Columns.Add("Producto", "Producto");
-            dgvVentas.Columns.Add("Cantidad", "Cantidad");
-            dgvVentas.Columns.Add("Precio", "Precio");
-            dgvVentas.Columns.Add("Total", "Total");
-            dgvVentas.Columns.Add("Fecha", "Fecha");
+            // tabla historial
+            dgvHistorial.Columns.Clear();
+            dgvHistorial.Columns.Add("IdVenta", "ID");
+            dgvHistorial.Columns.Add("Fecha", "Fecha");
+            dgvHistorial.Columns.Add("Total", "Total");
+
         }
 
-        private void CargarTabla()
+        private void CargarHistorial()
         {
-            dgvVentas.Rows.Clear();
-            foreach (var detalle in Repositorio.DetallesVentas)
+            dgvHistorial.Rows.Clear();
+            foreach (var venta in Repositorio.Ventas)
             {
-                Producto p = Repositorio.Productos
-                    .First(x => x.IdProducto == detalle.IdProducto);
-
-                Venta v = Repositorio.Ventas
-                    .First(x => x.IdVenta == detalle.IdVenta);
-
-                dgvVentas.Rows.Add(
-                    detalle.IdDetalle,
-                    detalle.IdVenta,
-                    p.Nombre,
-                    detalle.Cantidad,
-                    detalle.PrecioUnitario,
-                    detalle.Cantidad * detalle.PrecioUnitario,
-                    v.Fecha.ToString()
-
-                    );
+                dgvHistorial.Rows.Add(venta.IdVenta, venta.Fecha, venta.Total);
             }
         }
 
-        private void LimpiarCampos()
-        {
-            cmbProducto.SelectedIndex = -1;
-            nudCantidad.Value = 1;
-            idEditar = 0;
-            dgvVentas.ClearSelection();
-        }
 
         private void GestionVentas_Load(object sender, EventArgs e)
         {
@@ -93,11 +76,6 @@ namespace MiniMarketOrtz
             Producto p = (Producto)cmbProducto.SelectedItem;
             int cantidad = (int)nudCantidad.Value;
 
-            if (cantidad <= 0)
-            {
-                MessageBox.Show("Ingrese una cantidad válida.");
-                return;
-            }
             if (cantidad > p.Stock)
             {
                 MessageBox.Show("Stock insuficiente.");
@@ -117,121 +95,50 @@ namespace MiniMarketOrtz
                 p.Precio,
                 cantidad * p.Precio
                 );
-
-            Repositorio.DetallesVentas.Add(detalle);
-
-            p.Stock -= cantidad;
-
-            CargarTabla();
-            LimpiarCampos();
-
-            MessageBox.Show("Venta agregada correctamente.");
-
         }
 
-        private void dgvVentas_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            idEditar = Convert.ToInt32(
-                dgvVentas.Rows[e.RowIndex].Cells[0].Value);
-
-            string nombreProducto = dgvVentas.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-            int cantidad = Convert.ToInt32(
-                dgvVentas.Rows[e.RowIndex].Cells[3].Value);
-
-            cmbProducto.Text = nombreProducto;
-            nudCantidad.Value = cantidad;
+            if (e.RowIndex < 0)
+                return;
+            indexEditar = e.RowIndex;
+            cmbProducto.Text = dgvCarrito.Rows[e.RowIndex].Cells[0].Value.ToString();
+            nudCantidad.Value = Convert.ToInt32(dgvCarrito.Rows[e.RowIndex].Cells[1].Value);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (idEditar == 0)
-            {
-                MessageBox.Show("Seleccione una venta para editar.");
+            if (indexEditar < 0)
                 return;
-            }
-            if (cmbProducto.SelectedItem == null)
-            {
-                MessageBox.Show("Seleccione un producto.");
-                return;
-            }
+            Producto p = (Producto)cmbProducto.SelectedItem;
+            int cantidad = (int)nudCantidad.Value;
 
-            var detalle = Repositorio.DetallesVentas
-                .First(x => x.IdDetalle == idEditar);
+            carrito[indexEditar].IdProducto = p.IdProducto;
+            carrito[indexEditar].Cantidad = cantidad;
+            carrito[indexEditar].PrecioUnitario = p.Precio;
 
-            if (detalle == null)
-                return;
-
-            Producto productoAnterior = Repositorio.Productos
-                .First(x => x.IdProducto == detalle.IdProducto);
-
-            productoAnterior.Stock += detalle.Cantidad;
-
-            Producto nuevoProducto = (Producto)cmbProducto.SelectedItem;
-            int nuevaCantidad = (int)nudCantidad.Value;
-
-            if (nuevaCantidad > nuevoProducto.Stock)
-            {
-                MessageBox.Show("Stock insuficiente");
-                productoAnterior.Stock -= detalle.Cantidad;
-                return;
-            }
-
-            detalle.IdProducto = nuevoProducto.IdProducto;
-            detalle.Cantidad = nuevaCantidad;
-            detalle.PrecioUnitario = nuevoProducto.Precio;
-
-            nuevoProducto.Stock -= nuevaCantidad;
-
-            Venta venta = Repositorio.Ventas
-                .First(x => x.IdVenta == detalle.IdVenta);
-
-            venta.Total = nuevaCantidad * nuevoProducto.Precio;
-
-            CargarTabla();
-            LimpiarCampos();
-
-            MessageBox.Show("Venta editada correctamente.");
+            dgvCarrito.Rows[indexEditar].SetValues(
+                p.Nombre,
+                cantidad,
+                p.Precio,
+                cantidad * p.Precio
+                );
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idEditar == 0)
-            {
-                MessageBox.Show("Seleccione una venta para eliminar.");
+            if (indexEditar < 0)
                 return;
-            }
-
-            var detalle = Repositorio.DetallesVentas
-                .FirstOrDefault(x => x.IdDetalle == idEditar);
-
-            if (detalle == null)
-                return;
-
-            Producto p = Repositorio.Productos.First(x => x.IdProducto == detalle.IdProducto);
-
-            if (p != null)
-                p.Stock += detalle.Cantidad;
-
-            Repositorio.DetallesVentas.Remove(detalle);
-
-            var venta = Repositorio.Ventas
-                .FirstOrDefault(x => x.IdVenta == detalle.IdVenta);
-
-            if (venta != null)
-                Repositorio.Ventas.Remove(venta);
-
-            CargarTabla();
-            LimpiarCampos();
-
-            MessageBox.Show("Venta eliminada correctamente.");
+            carrito.RemoveAt(indexEditar);
+            dgvCarrito.Rows.RemoveAt(indexEditar);
+            indexEditar = -1;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            carrito.Clear();
+            dgvCarrito.Rows.Clear();
+            indexEditar = -1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -239,6 +146,54 @@ namespace MiniMarketOrtz
             MenuPrincipal m = new MenuPrincipal();
             m.Show(this);
             this.Hide();
+        }
+
+        private void btnRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            if (carrito.Count == 0)
+            {
+                MessageBox.Show("El carrito está vacío.");
+                return;
+            }
+            decimal total = carrito.Sum(d => d.Cantidad * d.PrecioUnitario);
+            Venta venta = new Venta(
+                Repositorio.Ventas.Count + 1,
+                DateTime.Now,
+                total
+                );
+            Repositorio.Ventas.Add(venta);
+
+            foreach (var item in carrito)
+            {
+                item.IdDetalle = Repositorio.DetallesVentas.Count + 1;
+                item.IdVenta = venta.IdVenta;
+
+                Repositorio.DetallesVentas.Add(item);
+
+                Producto p = Repositorio.Productos.First(pr => pr.IdProducto == item.IdProducto);
+
+                p.Stock -= item.Cantidad;
+            }
+            MessageBox.Show("Venta registrada exitosamente.");
+
+            carrito.Clear();
+            dgvCarrito.Rows.Clear();
+            CargarHistorial();
+        }
+
+        private void btnEliminarVenta_Click(object sender, EventArgs e)
+        {
+            if (dgvHistorial.CurrentRow == null)
+                return;
+
+            int idVenta = Convert.ToInt32(dgvHistorial.CurrentRow.Cells[0].Value);
+
+            var venta = Repositorio.Ventas.First(v => v.IdVenta == idVenta);
+
+            if (venta != null)
+                Repositorio.Ventas.Remove(venta);
+
+            CargarHistorial();
         }
     }
 }

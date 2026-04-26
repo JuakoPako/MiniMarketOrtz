@@ -30,7 +30,7 @@
         {
             btnAgregar = new Button();
             btnEditar = new Button();
-            dgvVentas = new DataGridView();
+            dgvCarrito = new DataGridView();
             cmbProducto = new ComboBox();
             nudCantidad = new NumericUpDown();
             lblNeto = new Label();
@@ -41,13 +41,17 @@
             btnEliminar = new Button();
             btnCancelar = new Button();
             btnVolver = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
+            dgvHistorial = new DataGridView();
+            btnRegistrarVenta = new Button();
+            btnEliminarVenta = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvCarrito).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             SuspendLayout();
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(65, 372);
+            btnAgregar.Location = new Point(25, 278);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 0;
@@ -57,7 +61,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(162, 372);
+            btnEditar.Location = new Point(163, 278);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
             btnEditar.TabIndex = 2;
@@ -65,13 +69,13 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
-            // dgvVentas
+            // dgvCarrito
             // 
-            dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentas.Location = new Point(41, 104);
-            dgvVentas.Name = "dgvVentas";
-            dgvVentas.Size = new Size(525, 196);
-            dgvVentas.TabIndex = 3;
+            dgvCarrito.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCarrito.Location = new Point(12, 70);
+            dgvCarrito.Name = "dgvCarrito";
+            dgvCarrito.Size = new Size(285, 196);
+            dgvCarrito.TabIndex = 3;
             // 
             // cmbProducto
             // 
@@ -132,7 +136,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(256, 372);
+            btnEliminar.Location = new Point(25, 307);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 11;
@@ -142,7 +146,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(348, 372);
+            btnCancelar.Location = new Point(163, 307);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 12;
@@ -160,11 +164,42 @@
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // dgvHistorial
+            // 
+            dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHistorial.Location = new Point(325, 70);
+            dgvHistorial.Name = "dgvHistorial";
+            dgvHistorial.Size = new Size(287, 196);
+            dgvHistorial.TabIndex = 14;
+            // 
+            // btnRegistrarVenta
+            // 
+            btnRegistrarVenta.Location = new Point(366, 280);
+            btnRegistrarVenta.Name = "btnRegistrarVenta";
+            btnRegistrarVenta.Size = new Size(109, 23);
+            btnRegistrarVenta.TabIndex = 15;
+            btnRegistrarVenta.Text = "Registrar venta";
+            btnRegistrarVenta.UseVisualStyleBackColor = true;
+            btnRegistrarVenta.Click += btnRegistrarVenta_Click;
+            // 
+            // btnEliminarVenta
+            // 
+            btnEliminarVenta.Location = new Point(481, 280);
+            btnEliminarVenta.Name = "btnEliminarVenta";
+            btnEliminarVenta.Size = new Size(100, 23);
+            btnEliminarVenta.TabIndex = 16;
+            btnEliminarVenta.Text = "Eliminar Venta";
+            btnEliminarVenta.UseVisualStyleBackColor = true;
+            btnEliminarVenta.Click += btnEliminarVenta_Click;
+            // 
             // GestionVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
+            Controls.Add(btnEliminarVenta);
+            Controls.Add(btnRegistrarVenta);
+            Controls.Add(dgvHistorial);
             Controls.Add(btnVolver);
             Controls.Add(btnCancelar);
             Controls.Add(btnEliminar);
@@ -175,15 +210,16 @@
             Controls.Add(lblNeto);
             Controls.Add(nudCantidad);
             Controls.Add(cmbProducto);
-            Controls.Add(dgvVentas);
+            Controls.Add(dgvCarrito);
             Controls.Add(btnEditar);
             Controls.Add(btnAgregar);
             Name = "GestionVentas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GestionVentas";
             Load += GestionVentas_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvVentas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCarrito).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,7 +229,7 @@
         private Button btnAgregar;
         private Button btnVender;
         private Button btnEditar;
-        private DataGridView dgvVentas;
+        private DataGridView dgvCarrito;
         private ComboBox cmbProducto;
         private NumericUpDown nudCantidad;
         private Label lblNeto;
@@ -204,5 +240,8 @@
         private Button btnEliminar;
         private Button btnCancelar;
         private Button btnVolver;
+        private DataGridView dgvHistorial;
+        private Button btnRegistrarVenta;
+        private Button btnEliminarVenta;
     }
 }
