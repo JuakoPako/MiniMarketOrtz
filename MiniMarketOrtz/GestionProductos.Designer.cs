@@ -68,6 +68,7 @@
             button3.TabIndex = 12;
             button3.Text = "Editar";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -82,6 +83,7 @@
             button2.TabIndex = 13;
             button2.Text = "Borrar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -101,6 +103,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.BackColor = Color.Transparent;
             lblNombre.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(49, 39);
             lblNombre.Name = "lblNombre";
@@ -123,6 +126,7 @@
             dgvProductos.RowHeadersVisible = false;
             dgvProductos.Size = new Size(300, 300);
             dgvProductos.TabIndex = 7;
+            dgvProductos.CellClick += dgvProductos_CellClick_1;
             // 
             // txtPrecio
             // 
@@ -134,6 +138,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(49, 99);
             label1.Name = "label1";
@@ -151,6 +156,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(49, 159);
             label3.Name = "label3";
@@ -169,6 +175,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(49, 219);
             label4.Name = "label4";

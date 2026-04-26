@@ -68,6 +68,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.BackColor = Color.Transparent;
             lblNombre.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(41, 46);
             lblNombre.Name = "lblNombre";
@@ -78,6 +79,7 @@
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
+            lblDescripcion.BackColor = Color.Transparent;
             lblDescripcion.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDescripcion.Location = new Point(41, 122);
             lblDescripcion.Name = "lblDescripcion";
@@ -88,7 +90,8 @@
             // button1
             // 
             button1.BackColor = Color.DeepSkyBlue;
-            button1.FlatStyle = FlatStyle.Popup;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.Location = new Point(115, 346);
@@ -102,7 +105,8 @@
             // button2
             // 
             button2.BackColor = Color.DeepSkyBlue;
-            button2.FlatStyle = FlatStyle.Popup;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
             button2.Location = new Point(405, 346);
@@ -116,7 +120,8 @@
             // button3
             // 
             button3.BackColor = Color.DeepSkyBlue;
-            button3.FlatStyle = FlatStyle.Popup;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
             button3.Location = new Point(260, 346);
