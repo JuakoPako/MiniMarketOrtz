@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvCategorias = new DataGridView();
+            dgvDetalle = new DataGridView();
             txtNombre = new TextBox();
             txtDescripcion = new TextBox();
             lblNombre = new Label();
@@ -36,18 +36,18 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
             SuspendLayout();
             // 
-            // dgvCategorias
+            // dgvDetalle
             // 
-            dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategorias.Location = new Point(297, 12);
-            dgvCategorias.Name = "dgvCategorias";
-            dgvCategorias.RowHeadersVisible = false;
-            dgvCategorias.Size = new Size(300, 300);
-            dgvCategorias.TabIndex = 0;
-            dgvCategorias.CellClick += dgvCategorias_CellClick;
+            dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDetalle.Location = new Point(297, 12);
+            dgvDetalle.Name = "dgvDetalle";
+            dgvDetalle.RowHeadersVisible = false;
+            dgvDetalle.Size = new Size(300, 300);
+            dgvDetalle.TabIndex = 0;
+            dgvDetalle.CellClick += dgvCategorias_CellClick;
             // 
             // txtNombre
             // 
@@ -138,18 +138,18 @@
             Controls.Add(lblNombre);
             Controls.Add(txtDescripcion);
             Controls.Add(txtNombre);
-            Controls.Add(dgvCategorias);
+            Controls.Add(dgvDetalle);
             Name = "GestionCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GestionCategoria";
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgvCategorias;
+        private DataGridView dgvDetalle;
         private TextBox txtNombre;
         private TextBox txtDescripcion;
         private Label lblNombre;
