@@ -15,7 +15,7 @@ namespace MiniMarketOrtz
     public partial class GestionCategoria : Form
     {
 
-        int idProgresivo = 1;
+        private int idSeleccionado = -1;
         public GestionCategoria()
         {
             InitializeComponent();
@@ -58,6 +58,7 @@ namespace MiniMarketOrtz
             if (e.RowIndex >= 0)
             {
                 Categoria seleccionada = (Categoria)dgvCategorias.Rows[e.RowIndex].DataBoundItem;
+                idSeleccionado = seleccionada.idCategoria;
 
                 txtNombre.Text = seleccionada.Nombre;
                 txtDescripcion.Text = seleccionada.Descripcion;
@@ -73,8 +74,51 @@ namespace MiniMarketOrtz
                 return;
             }
 
-            int idABuscar = int.Parse(txtId.Text);
-            var categoriaEncontrada = Repositorio.Categorias.FirstOrDefault(c => c.idCategoria == idABuscar);
+            var categoriaEncontrada = Repositorio.Categorias.FirstOrDefault(c => c.idCategoria == idSeleccionado);
+
+            if (categoriaEncontrada != null)
+            {
+                categoriaEncontrada.Nombre = txtNombre.Text;
+                categoriaEncontrada.Descripcion = txtDescripcion.Text;
+
+                txtNombre.Clear();
+                txtDescripcion.Clear();
+                idSeleccionado = -1;
+                refrescarGrid();
+
+                MessageBox.Show("Registro actualizado.");
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == -1)
+            {
+                MessageBox.Show("Debe seleccionar un registro de la tabla para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var categoriaAEliminar = Repositorio.Categorias.FirstOrDefault(c => c.idCategoria == idSeleccionado);
+
+            if (categoriaAEliminar != null)
+            {
+                DialogResult confirmacion = MessageBox.Show("¿Está seguro que desea eliminar la categoría?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    Repositorio.Categorias.Remove(categoriaAEliminar);
+
+                    txtNombre.Clear();
+                    txtDescripcion.Clear();
+                    idSeleccionado = -1;
+                    refrescarGrid();
+
+                    MessageBox.Show("Registro eliminado exitosamente.");
+                }
+            }
         }
     }
 }
+
+
