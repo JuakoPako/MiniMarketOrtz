@@ -57,7 +57,7 @@
             button1.BackColor = Color.DeepSkyBlue;
             button1.FlatAppearance.BorderColor = Color.Black;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonFace;
             button1.Location = new Point(93, 435);
             button1.Name = "button1";
