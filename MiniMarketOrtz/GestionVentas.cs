@@ -212,8 +212,7 @@ namespace MiniMarketOrtz
             if (detalle == null)
                 return;
 
-            Producto p = Repositorio.Productos
-                .FirstOrDefault(x => x.IdProducto == detalle.IdProducto);
+            Producto p = Repositorio.Productos.First(x => x.IdProducto == detalle.IdProducto);
 
             if (p != null)
                 p.Stock += detalle.Cantidad;
