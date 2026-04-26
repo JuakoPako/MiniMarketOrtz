@@ -30,7 +30,7 @@
         {
             btnAgregar = new Button();
             btnEditar = new Button();
-            dgvVental = new DataGridView();
+            dgvVentas = new DataGridView();
             cmbProducto = new ComboBox();
             nudCantidad = new NumericUpDown();
             lblNeto = new Label();
@@ -40,7 +40,8 @@
             lblCantidad = new Label();
             btnEliminar = new Button();
             btnCancelar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvVental).BeginInit();
+            btnVolver = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             SuspendLayout();
             // 
@@ -62,14 +63,15 @@
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
-            // dgvVental
+            // dgvVentas
             // 
-            dgvVental.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVental.Location = new Point(321, 22);
-            dgvVental.Name = "dgvVental";
-            dgvVental.Size = new Size(255, 196);
-            dgvVental.TabIndex = 3;
+            dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVentas.Location = new Point(41, 104);
+            dgvVentas.Name = "dgvVentas";
+            dgvVentas.Size = new Size(525, 196);
+            dgvVentas.TabIndex = 3;
             // 
             // cmbProducto
             // 
@@ -81,7 +83,7 @@
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(117, 82);
+            nudCantidad.Location = new Point(436, 32);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(120, 23);
             nudCantidad.TabIndex = 5;
@@ -122,7 +124,7 @@
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(41, 84);
+            lblCantidad.Location = new Point(348, 35);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(58, 15);
             lblCantidad.TabIndex = 10;
@@ -136,6 +138,7 @@
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnCancelar
             // 
@@ -145,12 +148,24 @@
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(516, 406);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(75, 23);
+            btnVolver.TabIndex = 13;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
             // 
             // GestionVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
+            Controls.Add(btnVolver);
             Controls.Add(btnCancelar);
             Controls.Add(btnEliminar);
             Controls.Add(lblCantidad);
@@ -160,14 +175,14 @@
             Controls.Add(lblNeto);
             Controls.Add(nudCantidad);
             Controls.Add(cmbProducto);
-            Controls.Add(dgvVental);
+            Controls.Add(dgvVentas);
             Controls.Add(btnEditar);
             Controls.Add(btnAgregar);
             Name = "GestionVentas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GestionVentas";
             Load += GestionVentas_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvVental).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVentas).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -178,7 +193,7 @@
         private Button btnAgregar;
         private Button btnVender;
         private Button btnEditar;
-        private DataGridView dgvVental;
+        private DataGridView dgvVentas;
         private ComboBox cmbProducto;
         private NumericUpDown nudCantidad;
         private Label lblNeto;
@@ -188,5 +203,6 @@
         private Label lblCantidad;
         private Button btnEliminar;
         private Button btnCancelar;
+        private Button btnVolver;
     }
 }
