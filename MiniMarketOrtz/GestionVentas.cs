@@ -100,24 +100,22 @@ namespace MiniMarketOrtz
             }
             if (cantidad > p.Stock)
             {
-                MessageBox.Show("No hay suficiente stock disponible.");
+                MessageBox.Show("Stock insuficiente.");
                 return;
             }
 
-            Venta venta = new Venta(
-                Repositorio.Ventas.Count + 1,
-                DateTime.Now,
-                cantidad * p.Precio
-                );
+            carrito.Add(new DetalleVenta
+            {
+                IdProducto = p.IdProducto,
+                Cantidad = cantidad,
+                PrecioUnitario = p.Precio
+            });
 
-            Repositorio.Ventas.Add(venta);
-
-            DetalleVenta detalle = new DetalleVenta(
-                Repositorio.DetallesVentas.Count + 1,
-                venta.IdVenta,
-                p.IdProducto,
+            dgvCarrito.Rows.Add(
+                p.Nombre,
                 cantidad,
-                p.Precio
+                p.Precio,
+                cantidad * p.Precio
                 );
 
             Repositorio.DetallesVentas.Add(detalle);
