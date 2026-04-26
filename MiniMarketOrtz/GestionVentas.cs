@@ -107,15 +107,27 @@ namespace MiniMarketOrtz
                 return;
 
             indexEditar = e.RowIndex;
-            string nombreProducto = dgvCarrito.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            var producto = Repositorio.Productos.FirstOrDefault(x => x.Nombre == nombreProducto);
-            if (producto != null)
+            var celdaNombre = dgvCarrito.Rows[e.RowIndex].Cells[0].Value;
+            if ( celdaNombre == null )
             {
-                cmbProducto.SelectedValue = producto.IdProducto;
+                MessageBox.Show("La fila seleccionada no contiene un producto.");
+                return;
             }
 
-            nudCantidad.Value = Convert.ToInt32(dgvCarrito.Rows[e.RowIndex].Cells[1].Value);
+            string nombreProducto = celdaNombre.ToString();
+            var producto = Repositorio.Productos.FirstOrDefault(p => p.Nombre == nombreProducto);
+            if (producto != null)
+            {
+                cmbProducto.SelectedItem = producto;
+                
+            }
+
+            var celdaCantidad = dgvCarrito.Rows[e.RowIndex].Cells[1].Value;
+            if ( celdaCantidad != null && int.TryParse(celdaCantidad.ToString(), out int cantidad))
+            {
+                nudCantidad.Value = cantidad;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
