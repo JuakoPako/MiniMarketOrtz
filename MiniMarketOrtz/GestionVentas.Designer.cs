@@ -51,6 +51,7 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.Font = new Font("Century Gothic", 9F);
             btnAgregar.Location = new Point(25, 278);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
@@ -61,6 +62,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Font = new Font("Century Gothic", 9F);
             btnEditar.Location = new Point(163, 278);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
@@ -76,7 +78,7 @@
             dgvCarrito.Name = "dgvCarrito";
             dgvCarrito.Size = new Size(285, 196);
             dgvCarrito.TabIndex = 3;
-            dgvCarrito.CellClick += new DataGridViewCellEventHandler(this.dgvCarrito_CellClick);
+            dgvCarrito.CellClick += dgvCarrito_CellClick;
             // 
             // cmbProducto
             // 
@@ -120,23 +122,26 @@
             // lblProducto
             // 
             lblProducto.AutoSize = true;
+            lblProducto.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblProducto.Location = new Point(41, 35);
             lblProducto.Name = "lblProducto";
-            lblProducto.Size = new Size(59, 15);
+            lblProducto.Size = new Size(66, 17);
             lblProducto.TabIndex = 9;
             lblProducto.Text = "Producto:";
             // 
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
+            lblCantidad.Font = new Font("Century Gothic", 9F);
             lblCantidad.Location = new Point(348, 35);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(58, 15);
+            lblCantidad.Size = new Size(67, 17);
             lblCantidad.TabIndex = 10;
             lblCantidad.Text = "Cantidad:";
             // 
             // btnEliminar
             // 
+            btnEliminar.Font = new Font("Century Gothic", 9F);
             btnEliminar.Location = new Point(25, 307);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
@@ -147,6 +152,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Font = new Font("Century Gothic", 9F);
             btnCancelar.Location = new Point(163, 307);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
@@ -157,7 +163,8 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(516, 406);
+            btnVolver.Font = new Font("Century Gothic", 9F);
+            btnVolver.Location = new Point(12, 406);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(75, 23);
             btnVolver.TabIndex = 13;
@@ -175,6 +182,7 @@
             // 
             // btnRegistrarVenta
             // 
+            btnRegistrarVenta.Font = new Font("Century Gothic", 9F);
             btnRegistrarVenta.Location = new Point(366, 280);
             btnRegistrarVenta.Name = "btnRegistrarVenta";
             btnRegistrarVenta.Size = new Size(109, 23);
@@ -185,6 +193,7 @@
             // 
             // btnEliminarVenta
             // 
+            btnEliminarVenta.Font = new Font("Century Gothic", 9F);
             btnEliminarVenta.Location = new Point(481, 280);
             btnEliminarVenta.Name = "btnEliminarVenta";
             btnEliminarVenta.Size = new Size(100, 23);
@@ -197,6 +206,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(624, 441);
             Controls.Add(btnEliminarVenta);
             Controls.Add(btnRegistrarVenta);

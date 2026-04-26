@@ -35,12 +35,14 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
+            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(txtContraseña);
             panel1.Controls.Add(txtUsuario);
@@ -113,6 +115,16 @@
             label2.TabIndex = 7;
             label2.Text = "Iniciar Sesion";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(85, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(195, 25);
+            label4.TabIndex = 11;
+            label4.Text = "MINIMARKET ORTZ";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -138,5 +150,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        private Label label4;
     }
 }

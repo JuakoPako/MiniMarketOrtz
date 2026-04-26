@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,14 @@ namespace MiniMarketOrtz
     {
 
         private int idSeleccionado = -1;
-        public GestionCategoria()
+        private Form menuPrincipal;
+        public GestionCategoria(Form menu)
         {
             InitializeComponent();
+            this.menuPrincipal = menu;
+            refrescarGrid();
+            this.DoubleBuffered = true;
+            this.Paint += Form1_Paint;
 
         }
 
@@ -116,6 +122,29 @@ namespace MiniMarketOrtz
 
                     MessageBox.Show("Registro eliminado exitosamente.");
                 }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.menuPrincipal != null)
+            {
+                this.menuPrincipal.Show();
+            }
+
+
+            this.Close();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+
+            Color colorArriba = Color.FromArgb(245, 247, 250);
+            Color colorAbajo = Color.FromArgb(214, 234, 248);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, colorArriba, colorAbajo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
     }

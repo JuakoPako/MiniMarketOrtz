@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MiniMarketOrtz.Modelos;
+using MiniMarketOrtz.Repo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MiniMarketOrtz.Modelos;
-using MiniMarketOrtz.Repo;
 
 namespace MiniMarketOrtz
 {
@@ -16,12 +17,15 @@ namespace MiniMarketOrtz
     {
         List<DetalleVenta> carrito = new List<DetalleVenta>();
         int indexEditar = -1;
-        public GestionVentas()
+        private Form menuPrincipal;
+        public GestionVentas(Form menu)
         {
             InitializeComponent();
             CargarProductos();
             ConfigurarTablas();
             CargarHistorial();
+            this.menuPrincipal = menu;
+
         }
 
         private void CargarProductos()
@@ -168,9 +172,13 @@ namespace MiniMarketOrtz
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            MenuPrincipal m = new MenuPrincipal();
-            m.Show(this);
-            this.Hide();
+            if (this.menuPrincipal != null)
+            {
+                this.menuPrincipal.Show();
+            }
+
+            
+            this.Close();
         }
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
@@ -219,6 +227,18 @@ namespace MiniMarketOrtz
                 Repositorio.Ventas.Remove(venta);
 
             CargarHistorial();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+
+            Color colorArriba = Color.FromArgb(245, 247, 250);
+            Color colorAbajo = Color.FromArgb(214, 234, 248);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, colorArriba, colorAbajo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
     }
 }

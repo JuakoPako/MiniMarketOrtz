@@ -36,6 +36,7 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(115, 370);
+            button1.Location = new Point(115, 346);
             button1.Name = "button1";
             button1.Size = new Size(104, 34);
             button1.TabIndex = 5;
@@ -104,7 +105,7 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(405, 370);
+            button2.Location = new Point(405, 346);
             button2.Name = "button2";
             button2.Size = new Size(104, 34);
             button2.TabIndex = 5;
@@ -118,7 +119,7 @@
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(260, 370);
+            button3.Location = new Point(260, 346);
             button3.Name = "button3";
             button3.Size = new Size(104, 34);
             button3.TabIndex = 5;
@@ -126,12 +127,24 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(12, 406);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 6;
+            button4.Text = "volver";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // GestionCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(624, 441);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -158,5 +171,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }
