@@ -76,6 +76,7 @@
             dgvCarrito.Name = "dgvCarrito";
             dgvCarrito.Size = new Size(285, 196);
             dgvCarrito.TabIndex = 3;
+            dgvCarrito.CellClick += new DataGridViewCellEventHandler(this.dgvCarrito_CellClick);
             // 
             // cmbProducto
             // 

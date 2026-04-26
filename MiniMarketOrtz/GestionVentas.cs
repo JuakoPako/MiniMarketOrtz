@@ -101,37 +101,62 @@ namespace MiniMarketOrtz
         {
             if (e.RowIndex < 0)
                 return;
+
             indexEditar = e.RowIndex;
-            cmbProducto.Text = dgvCarrito.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string nombreProducto = dgvCarrito.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            var producto = Repositorio.Productos.FirstOrDefault(x => x.Nombre == nombreProducto);
+            if (producto != null)
+            {
+                cmbProducto.SelectedValue = producto.IdProducto;
+            }
+
             nudCantidad.Value = Convert.ToInt32(dgvCarrito.Rows[e.RowIndex].Cells[1].Value);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (indexEditar < 0)
+            if (indexEditar == -1)
+            {
+                MessageBox.Show("Seleccione una fila para editar.");
                 return;
+            }
+
+            if (cmbProducto.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un producto.");
+                return;
+            }
+
             Producto p = (Producto)cmbProducto.SelectedItem;
             int cantidad = (int)nudCantidad.Value;
 
+            // Actualizar lista carrito
             carrito[indexEditar].IdProducto = p.IdProducto;
             carrito[indexEditar].Cantidad = cantidad;
             carrito[indexEditar].PrecioUnitario = p.Precio;
 
-            dgvCarrito.Rows[indexEditar].SetValues(
-                p.Nombre,
-                cantidad,
-                p.Precio,
-                cantidad * p.Precio
-                );
+            // Actualizar DataGridView
+            dgvCarrito.Rows[indexEditar].Cells[0].Value = p.Nombre;
+            dgvCarrito.Rows[indexEditar].Cells[1].Value = cantidad;
+            dgvCarrito.Rows[indexEditar].Cells[2].Value = p.Precio;
+            dgvCarrito.Rows[indexEditar].Cells[3].Value = cantidad * p.Precio;
+
+            MessageBox.Show("Producto editado correctamente.");
+            indexEditar = -1; // reset para evitar ediciones accidentales
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (indexEditar < 0)
+            if (dgvCarrito.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una fila");
                 return;
-            carrito.RemoveAt(indexEditar);
-            dgvCarrito.Rows.RemoveAt(indexEditar);
-            indexEditar = -1;
+            }
+            int fila = dgvCarrito.SelectedRows[0].Index;
+            carrito.RemoveAt(fila);
+            dgvCarrito.Rows.RemoveAt(fila);
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
