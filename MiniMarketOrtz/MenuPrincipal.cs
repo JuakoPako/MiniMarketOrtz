@@ -19,7 +19,7 @@ namespace MiniMarketOrtz
             this.DoubleBuffered = true;
             this.Paint += Form1_Paint;
 
-            
+
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
@@ -51,14 +51,19 @@ namespace MiniMarketOrtz
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            
+
             Color colorArriba = Color.FromArgb(245, 247, 250);
-            Color colorAbajo = Color.FromArgb(214, 234, 248); 
+            Color colorAbajo = Color.FromArgb(214, 234, 248);
 
             using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, colorArriba, colorAbajo, 90F))
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

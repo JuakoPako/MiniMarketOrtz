@@ -51,24 +51,30 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.BackColor = Color.DeepSkyBlue;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Century Gothic", 9F);
+            btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(25, 278);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.Size = new Size(75, 26);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnEditar
             // 
+            btnEditar.BackColor = Color.DeepSkyBlue;
+            btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Century Gothic", 9F);
+            btnEditar.ForeColor = Color.White;
             btnEditar.Location = new Point(163, 278);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(75, 23);
+            btnEditar.Size = new Size(75, 26);
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
             // dgvCarrito
@@ -141,24 +147,30 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.BackColor = Color.DeepSkyBlue;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Century Gothic", 9F);
+            btnEliminar.ForeColor = Color.White;
             btnEliminar.Location = new Point(25, 307);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(75, 26);
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnCancelar
             // 
+            btnCancelar.BackColor = Color.DeepSkyBlue;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Century Gothic", 9F);
+            btnCancelar.ForeColor = Color.White;
             btnCancelar.Location = new Point(163, 307);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(75, 26);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnVolver
@@ -182,24 +194,30 @@
             // 
             // btnRegistrarVenta
             // 
+            btnRegistrarVenta.BackColor = Color.DeepSkyBlue;
+            btnRegistrarVenta.FlatStyle = FlatStyle.Flat;
             btnRegistrarVenta.Font = new Font("Century Gothic", 9F);
+            btnRegistrarVenta.ForeColor = Color.White;
             btnRegistrarVenta.Location = new Point(366, 280);
             btnRegistrarVenta.Name = "btnRegistrarVenta";
-            btnRegistrarVenta.Size = new Size(109, 23);
+            btnRegistrarVenta.Size = new Size(109, 26);
             btnRegistrarVenta.TabIndex = 15;
             btnRegistrarVenta.Text = "Registrar venta";
-            btnRegistrarVenta.UseVisualStyleBackColor = true;
+            btnRegistrarVenta.UseVisualStyleBackColor = false;
             btnRegistrarVenta.Click += btnRegistrarVenta_Click;
             // 
             // btnEliminarVenta
             // 
+            btnEliminarVenta.BackColor = Color.DeepSkyBlue;
+            btnEliminarVenta.FlatStyle = FlatStyle.Flat;
             btnEliminarVenta.Font = new Font("Century Gothic", 9F);
+            btnEliminarVenta.ForeColor = Color.White;
             btnEliminarVenta.Location = new Point(481, 280);
             btnEliminarVenta.Name = "btnEliminarVenta";
-            btnEliminarVenta.Size = new Size(100, 23);
+            btnEliminarVenta.Size = new Size(100, 26);
             btnEliminarVenta.TabIndex = 16;
             btnEliminarVenta.Text = "Eliminar Venta";
-            btnEliminarVenta.UseVisualStyleBackColor = true;
+            btnEliminarVenta.UseVisualStyleBackColor = false;
             btnEliminarVenta.Click += btnEliminarVenta_Click;
             // 
             // GestionVentas

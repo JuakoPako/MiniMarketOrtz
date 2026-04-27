@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label4 = new Label();
             button1 = new Button();
             txtContraseña = new TextBox();
             txtUsuario = new TextBox();
             label3 = new Label();
             label1 = new Label();
+            pictureBox4 = new PictureBox();
             label2 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -49,10 +51,21 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
+            panel1.Controls.Add(pictureBox4);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(365, 561);
             panel1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(85, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(195, 25);
+            label4.TabIndex = 11;
+            label4.Text = "MINIMARKET ORTZ";
             // 
             // button1
             // 
@@ -105,25 +118,26 @@
             label1.TabIndex = 6;
             label1.Text = "Usuario";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = Properties.Resources.logo;
+            pictureBox4.Location = new Point(109, 31);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(138, 123);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 6;
+            pictureBox4.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(128, 93);
+            label2.Location = new Point(128, 133);
             label2.Name = "label2";
             label2.Size = new Size(108, 21);
             label2.TabIndex = 7;
             label2.Text = "Iniciar Sesion";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(85, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(195, 25);
-            label4.TabIndex = 11;
-            label4.Text = "MINIMARKET ORTZ";
             // 
             // Form1
             // 
@@ -139,6 +153,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -149,7 +164,8 @@
         private TextBox txtUsuario;
         private Label label3;
         private Label label1;
-        private Label label2;
         private Label label4;
+        private PictureBox pictureBox4;
+        private Label label2;
     }
 }

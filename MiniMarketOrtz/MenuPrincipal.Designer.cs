@@ -36,9 +36,11 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             label1 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // btnProductos
@@ -130,6 +132,18 @@
             label1.TabIndex = 2;
             label1.Text = "MINIMARKET ORTZ";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = Properties.Resources.logo;
+            pictureBox4.Location = new Point(402, -8);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(241, 224);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 3;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -143,12 +157,14 @@
             Controls.Add(btnVentas);
             Controls.Add(btnCategorias);
             Controls.Add(btnProductos);
+            Controls.Add(pictureBox4);
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,5 +178,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label label1;
+        private PictureBox pictureBox4;
     }
 }
